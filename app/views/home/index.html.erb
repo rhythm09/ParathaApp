@@ -1,0 +1,10 @@
+<h1>Welcome</h1>
+<% flash.each do |type, msg| %>
+  <div>
+    <%=msg %>
+  </div>
+<% end %>
+
+<%= button_to "Login",'/sessions/new',method: :get %>
+<%= button_to "Sign Up",'users/new',method: :get %>
+
