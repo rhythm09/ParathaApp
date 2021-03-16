@@ -1,4 +1,5 @@
-<h1>Welcome</h1>
+<div class="container-fluid-sm pt-5  bg-primary">
+<h1 class="text-dark">Welcome</h1>
 <% flash.each do |type, msg| %>
   <div>
     <%= msg %>
@@ -7,4 +8,5 @@
 
 <%= button_to "Login",'/sessions/new',method: :get %>
 <%= button_to "Sign Up",'users/new',method: :get %>
+</div>
 
