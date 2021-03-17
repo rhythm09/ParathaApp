@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:current_user_id] = @user.id
-      redirect_to welcome_path 
+      redirect_to root_path 
     else
       flash[:danger] = @user.errors.full_messages
       render :new

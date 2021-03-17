@@ -2,7 +2,6 @@
   <nav class="navbar navbar-dark bg-dark"> 
     <div class="nav navbar ml-auto">
       <%= button_to "Log out", session_path(current_user.id), method: :delete, :class => "nav-item btn btn-primary" %>
-      <%= button_to "Sign Up",'users/new', method: :get, :class => "nav-item btn btn-primary"  %>
     </div>
   </nav>
 <% else %>
