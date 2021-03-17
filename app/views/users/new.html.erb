@@ -30,28 +30,22 @@
 
 <div class="form-group">
   <%= user_form.label :gender, "Gender", :class=> "input1" %>
-</div>
+</div> 
 <div class="form-group">
   <%= user_form.radio_button :gender, "male"%>
   <%= user_form.label :male, "Male", :class=> "input1" %>
 </div>
-
 <div class="form-group">
   <%= user_form.radio_button :gender, "female"  %>
   <%= user_form.label :female, "Female", :class=> "input1" %>
 </div>
-
 <div class="form-group">
   <%= user_form.submit "Sign Up", :class=> "bu" %>
 </div>
 <% end %>
 </div>
 <div class="card-footer">
-  <% flash.each do |type, msg| %>
-  <div class="text-danger">
-    <%=msg %>
-  </div>
-<% end %>
+  <%= render partial: "shared/flash" %>
 </div>
 </div>
 </div>

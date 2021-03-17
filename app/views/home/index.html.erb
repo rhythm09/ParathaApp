@@ -1,10 +1,6 @@
 <%= render partial: "shared/nav" %> 
 <div class="container-fluid-sm pt-5 ">
 <h1 class="text-info text-center">Welcome</h1>
-<% flash.each do |type, msg| %>
-  <div class="text-info text-center">
-    <%= msg%>
-  </div>
-<% end %>
+<%= render partial: "shared/flash" %>
 </div>
 

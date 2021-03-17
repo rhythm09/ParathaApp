@@ -6,7 +6,7 @@
    <h1>Login Page</h1>
  </div>
  <div class= "card-body c1">
-   <%= form_for(:session,url: sessions_path) do |form|%>
+   <%= form_for(:session, url: sessions_path) do |form|%>
    <div class="form-group">
   <%= form.label :email, "Email:", :class=> "input1" %>
   <%= form.text_field :email, :class=> "form-control" %>
@@ -22,11 +22,7 @@
 </div>
 
 <div class="card-footer">
-  <% flash.each do |type, msg| %>
-  <div class="text-danger">
-    <%= msg %>
-  </div>
-<% end %>
+<%= render partial: "shared/flash" %>
 </div>
 </div>
 </div>
