@@ -1,5 +1,5 @@
+<%= render partial: "shared/nav" %>
 <h1>Welcome</h1>
 <% if logged_in? %>
   <h1><%= current_user.name %></h1>
 <% end %>
-<%= link_to "Log out", session_path(current_user.id), method: :delete %>

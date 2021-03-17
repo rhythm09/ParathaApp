@@ -1,12 +1,10 @@
-<div class="container-fluid-sm pt-5  bg-primary">
-<h1 class="text-dark">Welcome</h1>
+<%= render partial: "shared/nav" %> 
+<div class="container-fluid-sm pt-5 ">
+<h1 class="text-info text-center">Welcome</h1>
 <% flash.each do |type, msg| %>
-  <div>
-    <%= msg %>
+  <div class="text-info text-center">
+    <%= msg%>
   </div>
 <% end %>
-
-<%= button_to "Login",'/sessions/new',method: :get %>
-<%= button_to "Sign Up",'users/new',method: :get %>
 </div>
 
