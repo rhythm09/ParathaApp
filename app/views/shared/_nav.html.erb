@@ -1,15 +1,15 @@
 <% if logged_in? %>
-<nav class="navbar navbar-dark bg-dark"> 
-  <div class="nav navbar ml-auto">
- <%= button_to "Log out", session_path(current_user.id), method: :delete, :class => "nav-item btn btn-primary" %>
-  <%= button_to "Sign Up",'users/new', method: :get, :class => "nav-item btn btn-primary"  %>
-</div>
-</nav>
+  <nav class="navbar navbar-dark bg-dark"> 
+    <div class="nav navbar ml-auto">
+      <%= button_to "Log out", session_path(current_user.id), method: :delete, :class => "nav-item btn btn-primary" %>
+      <%= button_to "Sign Up",'users/new', method: :get, :class => "nav-item btn btn-primary"  %>
+    </div>
+  </nav>
 <% else %>
-<nav class="navbar navbar-dark bg-dark"> 
-  <div class="nav navbar ml-auto">
-  <%= button_to "Login",'/sessions/new', method: :get ,:class => "nav-item btn btn-primary" %>
-  <%= button_to "Sign Up",'users/new', method: :get, :class => "nav-item btn btn-primary"  %>
-</div>
-</nav>
+  <nav class="navbar navbar-dark bg-dark"> 
+    <div class="nav navbar ml-auto">
+      <%= button_to "Login",'/sessions/new', method: :get ,:class => "nav-item btn btn-primary" %>
+      <%= button_to "Sign Up",'users/new', method: :get, :class => "nav-item btn btn-primary"  %>
+    </div>
+  </nav>
 <% end %>

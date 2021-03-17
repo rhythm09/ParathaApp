@@ -1,51 +1,45 @@
 <%= render partial: "shared/nav" %>
-
 <div class="container-fluid">
   <div class="card w-50 mx-auto" >
     <div class="card-header c1 text-center text-danger">
       <h1>Sign Up Page</h1>
     </div>
-      <div class= "card-body c1">
-<%= form_with model: @user,url:users_path do |user_form| %>
-
-  <div class="form-group">
-  <%= user_form.label :name, "Name:", :class=> "input1" %>
-  <%= user_form.text_field :name, :class=> "form-control" %>
-</div>
-
-<div class="form-group">
-  <%= user_form.label :email, "Email:", :class=> "input1" %>
-  <%= user_form.text_field :email, :class=> "form-control" %>
-</div>
-
-<div class="form-group">
-  <%= user_form.label :password, "Password:", :class=> "input1" %>
-  <%= user_form.password_field :password, :class=> "form-control" %>
-</div>
-
-<div class="form-group">
-  <%= user_form.label :password_confirmation, "Confirm Password:", :class=> "input1" %>
-  <%= user_form.password_field :password_confirmation, :class=> "form-control" %>
-</div>
-
-<div class="form-group">
-  <%= user_form.label :gender, "Gender", :class=> "input1" %>
-</div> 
-<div class="form-group">
-  <%= user_form.radio_button :gender, "male"%>
-  <%= user_form.label :male, "Male", :class=> "input1" %>
-</div>
-<div class="form-group">
-  <%= user_form.radio_button :gender, "female"  %>
-  <%= user_form.label :female, "Female", :class=> "input1" %>
-</div>
-<div class="form-group">
-  <%= user_form.submit "Sign Up", :class=> "bu" %>
-</div>
-<% end %>
-</div>
-<div class="card-footer">
-  <%= render partial: "shared/flash" %>
-</div>
-</div>
+    <div class= "card-body c1">
+      <%= form_with model: @user, url:users_path do |user_form| %>
+        <div class="form-group">
+          <%= user_form.label :name, "Name:", :class=> "input1" %>
+          <%= user_form.text_field :name, :class=> "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= user_form.label :email, "Email:", :class=> "input1" %>
+          <%= user_form.text_field :email, :class=> "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= user_form.label :password, "Password:", :class=> "input1" %>
+          <%= user_form.password_field :password, :class=> "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= user_form.label :password_confirmation, "Confirm Password:", :class=> "input1" %>
+          <%= user_form.password_field :password_confirmation, :class=> "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= user_form.label :gender, "Gender", :class=> "input1" %>
+        </div> 
+        <div class="form-group">
+          <%= user_form.radio_button :gender, "male"%>
+          <%= user_form.label :male, "Male", :class=> "input1" %>
+        </div>
+        <div class="form-group">
+          <%= user_form.radio_button :gender, "female"  %>
+          <%= user_form.label :female, "Female", :class=> "input1" %>
+        </div>
+        <div class="form-group">
+          <%= user_form.submit "Sign Up", :class=> "bu" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="card-footer">
+      <%= render partial: "shared/flash" %>
+    </div>
+  </div>
 </div>
