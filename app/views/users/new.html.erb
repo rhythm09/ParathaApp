@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%= render partial: "shared/nav" %>
 <div class = "container-fluid">
   <div class = "card w-50 mx-auto" >
@@ -44,22 +43,3 @@
     </div>
   </div>
 </div>
-=======
-<h1>Sign Up</h1>
-<%= render partial: "shared/flash" %>
-<%= form_with model: @user, url:users_path do |user_form| %>
-  <%= user_form.label :name, "Name:" %>
-  <%= user_form.text_field :name %>
-  <%= user_form.label :email, "Email:" %>
-  <%= user_form.text_field :email %>
-  <%= user_form.label :password, "Password:" %>
-  <%= user_form.password_field :password %>
-  <%= user_form.label :password_confirmation, "Confirm Password:" %>
-  <%= user_form.password_field :password_confirmation %>
-  <%= user_form.radio_button :gender, "male" %>
-  <%= user_form.label :male, "Male" %>
-  <%= user_form.radio_button :gender, "female" %>
-  <%= user_form.label :female, "Female" %>
-  <%= user_form.submit %>
-<% end %>
->>>>>>> master
