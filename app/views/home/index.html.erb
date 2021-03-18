@@ -1,6 +1,17 @@
+<<<<<<< HEAD
 <%= render partial: "shared/nav" %> 
 <div class = "container-fluid-sm pt-5 ">
   <h1 class = "text-info text-center">Welcome</h1>
   <%= render partial: "shared/flash" %>
 </div>
 
+=======
+<h1>Welcome</h1>
+<% if logged_in? %>
+  <%= button_to "Log out", session_path(current_user.id), method: :delete %> 
+<% else %>
+  <%= render partial: "shared/flash" %>
+  <%= button_to "Login", new_session_path, method: :get %>
+  <%= button_to "Sign Up", new_user_path, method: :get %>
+<% end %>
+>>>>>>> master

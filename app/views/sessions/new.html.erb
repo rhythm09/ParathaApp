@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%= render partial: "shared/nav" %>
 <div class = "container-fluid">
   <div class = "card w-50 mx-auto" >
@@ -29,3 +30,15 @@
   
   
 
+=======
+<h1>Login</h1>
+<%= render partial: "shared/flash" %>
+
+<%= form_for(:session, url: sessions_path) do |form| %>
+  <%= form.label :email, "Email:" %>
+  <%= form.text_field :email %>
+  <%= form.label :password, "Password:" %>
+  <%= form.password_field :password %>
+  <%= form.submit "Log In" %>
+<% end %>
+>>>>>>> master
