@@ -1,25 +1,25 @@
 <%= render partial: "shared/nav" %>
-<div class="container-fluid">
-  <div class="card w-50 mx-auto" >
-    <div class="card-header c1 text-center text-danger">
+<div class = "container-fluid">
+  <div class = "card w-50 mx-auto" >
+    <div class = "card-header c1 text-center text-danger">
       <h1>Login Page</h1>
     </div>
-    <div class= "card-body c1">
+    <div class = "card-body c1">
       <%= form_for(:session, url: sessions_path) do |form|%>
-        <div class="form-group">
-          <%= form.label :email, "Email:", :class=> "input1" %>
-          <%= form.text_field :email, :class=> "form-control" %>
+        <div class = "form-group">
+          <%= form.label :email, "Email:", class: "input1" %>
+          <%= form.text_field :email, class: "form-control" %>
         </div>
-        <div class="form-group ">
-          <%= form.label :password, "Password:", :class=> "input1" %>
-          <%= form.password_field :password, :class=> "form-control" %>
+        <div class = "form-group ">
+          <%= form.label :password, "Password:", class: "input1" %>
+          <%= form.password_field :password, class: "form-control" %>
         </div>
-        <div class="form-group">
-          <%= form.submit "Log In", :class=> "bu" %>
+        <div class = "form-group">
+          <%= form.submit "Log In", class: "bu" %>
         </div>
       <% end %>
     </div>
-    <div class="card-footer">
+    <div class = "card-footer">
       <%= render partial: "shared/flash" %>
     </div>
   </div>
