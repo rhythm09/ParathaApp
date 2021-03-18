@@ -9,5 +9,3 @@ class ApplicationController < ActionController::Base
     current_user.present?  
   end
 end
-
-
