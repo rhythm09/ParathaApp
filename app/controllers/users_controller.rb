@@ -26,10 +26,12 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by(id: params[:id])
     if @user.update(user_params)
-      flash.now[:success] = "Updated Successfully"
+      flash[:success] = "Updated Successfully"
       redirect_to root_path
     else 
       flash.now[:danger] = @user.errors.full_messages
+      render :edit
+    end
   end
 
   private
