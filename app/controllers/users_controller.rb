@@ -8,16 +8,16 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:current_user_id] = @user.id
-      redirect_to root_path
+      redirect_to root_path 
     else
-      flash[:danger] = @user.errors.full_messages
+      flash.now[:danger] = @user.errors.full_messages
       render :new
     end
   end
 
   private
-  
+
   def user_params
-    params.require(:user).permit(:name, :email, :password_confirmation, :password,:gender)
+    params.require(:user).permit(:name, :email, :password_confirmation, :password, :gender)
   end
 end
