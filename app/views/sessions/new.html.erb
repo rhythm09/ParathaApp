@@ -1,10 +1,25 @@
-<h1>Login</h1>
-<%= render partial: "shared/flash" %>
-
-<%= form_for(:session, url: sessions_path) do |form| %>
-  <%= form.label :email, "Email:" %>
-  <%= form.text_field :email %>
-  <%= form.label :password, "Password:" %>
-  <%= form.password_field :password %>
-  <%= form.submit "Log In" %>
-<% end %>
+<div class = "container-fluid">
+  <div class = "card w-50 mx-auto" >
+    <div class = "card-header c1 text-center text-danger">
+      <h1>Login Page</h1>
+    </div>
+    <div class = "card-body c1">
+      <%= form_for(:session, url: sessions_path) do |form| %>
+        <div class = "form-group">
+          <%= form.label :email, "Email:", class: "input1" %>
+          <%= form.email_field :email, class: "form-control" %>
+        </div>
+        <div class = "form-group ">
+          <%= form.label :password, "Password:", class: "input1" %>
+          <%= form.password_field :password, class: "form-control" %>
+        </div>
+        <div class = "form-group">
+          <%= form.submit "Log In", class: "button_css" %>
+        </div>
+      <% end %>
+    </div>
+    <div class = "card-footer">
+      <%= render partial: "shared/flash" %>
+    </div>
+  </div>
+</div>
