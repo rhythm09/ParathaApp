@@ -1,0 +1,2 @@
+class ParathasController < ApplicationController
+end

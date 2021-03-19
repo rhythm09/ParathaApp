@@ -1,0 +1,2 @@
+class Paratha < ApplicationRecord
+end
