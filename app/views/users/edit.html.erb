@@ -1,10 +1,10 @@
 <div class = "container-fluid">
   <div class = "card w-50 mx-auto" >
     <div class = "card-header c1 text-center text-danger">
-      <h1>My Profile</h1>
+      <h1>Edit</h1>
     </div>
     <div class = "card-body c1">
-      <%= render partial: "shared/form", locals: {path: edit_user_path(current_user.id), read: true, button_name: "Edit", method_name: "get", status: "show" } %>  
+      <%= render partial: "shared/form", locals: {path: user_path(current_user.id), read: false, button_name: "Update", method_name: "patch", status: "edit"} %>  
       <div class = "outer">
         <%= button_to "Ok", root_path, method: :get, class: "button_1_css" %>
       </div>

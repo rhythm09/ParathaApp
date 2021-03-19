@@ -1,0 +1,30 @@
+      <%= form_with(model: @user, url: path, method: method_name) do |user_form| %>
+        <div class = "form-group">
+          <%= user_form.label :name, "Name:", class: "input1" %>
+          <%= user_form.text_field :name, class: "form-control", readonly: read %>
+        </div>
+        <div class = "form-group">
+          <%= user_form.label :email, "Email:", class: "input1" %>
+          <%= user_form.text_field :email, class: "form-control", readonly: read %>
+        </div>
+        <% if status.eql?("show") %>
+          <div class = "form-group">
+          <%= user_form.label :Gender, "Gender:", class: "input1" %>
+          <%= user_form.text_field :gender, class: "form-control", readonly: read %>
+        <% else %>
+        <div class = "form-group">
+          <%= user_form.label :gender, "Gender", class: "input1" %>
+        </div> 
+        <div class = "form-group">
+          <%= user_form.radio_button :gender, "male"%>
+          <%= user_form.label :male, "Male", class: "input1", readonly: read%>
+        </div>
+        <div class = "form-group">
+          <%= user_form.radio_button :gender, "female"  %>
+          <%= user_form.label :female, "Female",class: "input1", readonly: read %>
+        </div>
+        <% end %>
+        <div class = "form-group">
+          <%= user_form.submit button_name, class: "button_1_css" %>
+        </div>
+      <% end %>
