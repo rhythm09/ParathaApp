@@ -26,12 +26,19 @@ class ParathasController < ApplicationController
   def update
     @paratha = Paratha.find_by(id: params[:id])
     if @paratha.update(paratha_params)
-      flash[:success] = "Updated Successfully"
+      flash[:success] = "Paratha Updated Successfully"
       redirect_to root_path
     else 
       flash.now[:danger] = @paratha.errors.full_messages
       render :edit
     end
+  end
+
+  def destroy
+    @paratha = Paratha.find_by(id: params[:id])
+    @paratha.destroy
+    flash[:success] = "Paratha Deleted Successfully"
+    redirect_to root_path
   end
 
   def paratha_params

@@ -1,5 +1,5 @@
 <% @parathas.each do |paratha| %>
-  <div class="card mx-auto" style="width: 18rem;">
+  <div class="card mx-auto c1 text-center text-danger" style="width: 18rem;">
     <div class="card-header">
       <%= paratha.name %>
     </div>
@@ -19,7 +19,7 @@
         </tr>
       </tbody>
     </table>
-    <div class = "clard-footer">
+    <div class = "card-footer">
       <% if current_user.role.eql?("admin") %>
         <%= button_to "Edit Paratha", edit_paratha_path(paratha.id) , method: :get, class: "nav-item btn btn-primary" %>
       <% end %>

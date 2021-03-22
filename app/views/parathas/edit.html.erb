@@ -25,6 +25,9 @@
           <%= paratha_form.submit "Update Paratha", class: "button_1_css" %>
         </div>
       <% end %>
+      <div class = "outer">
+        <%= button_to "Delete Paratha", paratha_path(@paratha.id), method: :delete, class: "button_1_css" %>
+      </div>
     </div>
     <div class = "card-footer">
       <%= render partial: "shared/flash" %>
