@@ -3,7 +3,9 @@
     <div class = "nav navbar ml-auto">
       <%= button_to "Log out", session_path(current_user.id), method: :delete, class: "nav-item btn btn-primary" %>
       <%= button_to "My Profile", user_path(current_user.id), method: :get, class: "nav-item btn btn-primary" %>
-      <%= button_to "Add Paratha", new_paratha_path, method: :get, class: "nav-item btn btn-primary" %>
+      <% if is_admin %>
+        <%= button_to "Add Paratha", new_paratha_path, method: :get, class: "nav-item btn btn-primary" %>
+      <% end %>
     </div>
   </nav>
 <% else %>
