@@ -6,34 +6,34 @@
     <div class = "card-body c1">
       <%= form_with model: @user, url: users_path do |user_form| %>
         <div class = "form-group">
-          <%= user_form.label :name, "Name:", class: "input1" %>
+          <%= user_form.label :name, "Name:", class: "label" %>
           <%= user_form.text_field :name, class: "form-control" %>
         </div>
         <div class = "form-group">
-          <%= user_form.label :email, "Email:", class: "input1" %>
+          <%= user_form.label :email, "Email:", class: "label" %>
           <%= user_form.email_field :email, class: "form-control" %>
         </div>
         <div class = "form-group">
-          <%= user_form.label :password, "Password:", class: "input1" %>
+          <%= user_form.label :password, "Password:", class: "label" %>
           <%= user_form.password_field :password, class: "form-control" %>
         </div>
         <div class = "form-group">
-          <%= user_form.label :password_confirmation, "Confirm Password:", class: "input1" %>
+          <%= user_form.label :password_confirmation, "Confirm Password:", class: "label" %>
           <%= user_form.password_field :password_confirmation, class: "form-control" %>
         </div>
         <div class = "form-group">
-          <%= user_form.label :gender, "Gender", class: "input1" %>
+          <%= user_form.label :gender, "Gender", class: "label" %>
         </div> 
         <div class = "form-group">
           <%= user_form.radio_button :gender, "male"%>
-          <%= user_form.label :male, "Male", class: "input1" %>
+          <%= user_form.label :male, "Male", class: "label" %>
         </div>
         <div class = "form-group">
           <%= user_form.radio_button :gender, "female"  %>
-          <%= user_form.label :female, "Female",class: "input1" %>
+          <%= user_form.label :female, "Female",class: "label" %>
         </div>
         <div class = "form-group">
-          <%= user_form.submit "Sign Up", class: "button_css" %>
+          <%= user_form.submit "Sign Up", class: "login_signup_form" %>
         </div>
       <% end %>
     </div>
