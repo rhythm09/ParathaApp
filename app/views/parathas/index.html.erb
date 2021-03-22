@@ -1,0 +1,24 @@
+<% @parathas.each do |paratha| %>
+  <div class="card mx-auto" style="width: 18rem;">
+    <div class="card-header">
+      <%= paratha.name %>
+    </div>
+    <table class="card-table table">
+      <thead>
+        <tr>
+          <th scope = "col">Price</th>
+          <th scope = "col">Category</th>
+          <th scope = "col">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= paratha.price %></td>
+          <td><%= paratha.category %></td>
+          <td><%= paratha.description %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br><br>
+<% end %>

@@ -15,7 +15,8 @@ class ParathasController < ApplicationController
     end
   end
 
-  def show
+  def index
+    @parathas = Paratha.all
   end
 
   def paratha_params
