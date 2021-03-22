@@ -6,6 +6,7 @@
       <% if is_admin %>
         <%= button_to "Add Paratha", new_paratha_path, method: :get, class: "nav-item btn btn-primary" %>
       <% end %>
+      <%= button_to "Show Parathas", paratha_path, method: :get, class: "nav-item btn btn-primary" %>
     </div>
   </nav>
 <% else %>
