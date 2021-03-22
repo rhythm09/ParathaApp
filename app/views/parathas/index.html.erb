@@ -19,6 +19,11 @@
         </tr>
       </tbody>
     </table>
+    <div class = "clard-footer">
+      <% if current_user.role.eql?("admin") %>
+        <%= button_to "Edit Paratha", edit_paratha_path(paratha.id) , method: :get, class: "nav-item btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
   <br><br>
 <% end %>
