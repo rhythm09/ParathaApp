@@ -6,7 +6,7 @@
     <div class = "card-body c1">
       <%= render partial: "shared/form", locals: {path: user_path(current_user.id), read: false, button_name: "Update", method_name: "patch", status: "edit"} %>  
       <div class = "outer">
-        <%= button_to "Ok", root_path, method: :get, class: "button_1_css" %>
+        <%= button_to "Back", root_path, method: :get, class: "button_1_css" %>
       </div>
     </div>
     <div class = "card-footer">

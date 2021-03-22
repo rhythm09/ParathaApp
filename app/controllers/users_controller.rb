@@ -16,15 +16,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
+    @user = find_user
   end
 
   def edit
-    @user = User.find_by(id: params[:id])
+    @user = find_user
   end
   
   def update
-    @user = User.find_by(id: params[:id])
+    @user = find_user
     if @user.update(user_params)
       flash[:success] = "Updated Successfully"
       redirect_to root_path
@@ -32,6 +32,10 @@ class UsersController < ApplicationController
       flash.now[:danger] = @user.errors.full_messages
       render :edit
     end
+  end
+
+  def find_user
+    @user = User.find_by(id: params[:id])
   end
 
   private
