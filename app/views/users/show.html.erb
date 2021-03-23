@@ -5,8 +5,8 @@
     </div>
     <div class = "card-body c1">
       <%= render partial: "shared/form", locals: {path: edit_user_path(current_user.id), read: true, button_name: "Edit", method_name: "get", status: "show" } %>  
-      <div class = "outer">
-        <%= button_to "Ok", root_path, method: :get, class: "button_1_css" %>
+      <div>
+        <%= button_to "Close", root_path, method: :get, class: "form_button" %>
       </div>
     </div>
     <div class = "card-footer">

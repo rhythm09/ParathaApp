@@ -1,5 +1,6 @@
 class ParathasController < ApplicationController
-  
+  before_action :find_paratha, only: %i(edit update destroy)
+
   def new
     @paratha = Paratha.new
   end
@@ -19,12 +20,9 @@ class ParathasController < ApplicationController
     @parathas = Paratha.all
   end
 
-  def edit
-    @paratha = Paratha.find_by(id: params[:id])
-  end
+  def edit; end
 
   def update
-    @paratha = Paratha.find_by(id: params[:id])
     if @paratha.update(paratha_params)
       flash[:success] = "Paratha Updated Successfully"
       redirect_to root_path
@@ -35,10 +33,15 @@ class ParathasController < ApplicationController
   end
 
   def destroy
-    @paratha = Paratha.find_by(id: params[:id])
     @paratha.destroy
     flash[:success] = "Paratha Deleted Successfully"
     redirect_to root_path
+  end
+
+  private
+
+  def find_paratha
+    @paratha = Paratha.find_by(id: params[:id])
   end
 
   def paratha_params
