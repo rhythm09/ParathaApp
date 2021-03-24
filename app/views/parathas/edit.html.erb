@@ -4,6 +4,12 @@
       <h1>Edit Paratha</h1>
     </div>
     <div class = "card-body c1">
+      <% @paratha.images.each do |image| %>
+        <div>
+          <%= image_tag(url_for(image), class: "rounded mx-auto d-block ", alt: "Cinque Terre", width: "304", height: "236")  if @paratha.images.attached? %>
+        </div>
+        <%= button_to "Delete Image", image_path(@paratha,image), method: :get, class: "form_button" %> 
+      <% end %>
       <%= form_with(model: @paratha, url: paratha_path(@paratha.id), method: "patch") do |paratha_form| %>
         <div class = "form-group">
           <%= paratha_form.label :name, "Name:", class: "label" %>
@@ -21,6 +27,10 @@
           <%= paratha_form.label :description, "Description", class: "label" %>
           <%= paratha_form.text_area :description, class: "form-control" %>
         </div> 
+        <div class="photos">
+          <%= paratha_form.label :images, "Add photos", class: "label" %>
+          <%= paratha_form.file_field :images, :multiple => true %>
+        </div>
         <div class = "form-group">
           <%= paratha_form.submit "Update Paratha", class: "form_button" %>
         </div>

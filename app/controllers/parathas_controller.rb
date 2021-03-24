@@ -38,6 +38,14 @@ class ParathasController < ApplicationController
     redirect_to root_path
   end
 
+  def show1
+    # byebug
+    @paratha = Paratha.find_by(id: params[:paratha_id])
+    @image = @paratha.images.find_by(id: params[:image_id])
+    @image.purge
+    redirect_to edit_paratha_path(@paratha.id)
+  end
+
   private
 
   def find_paratha
@@ -45,6 +53,6 @@ class ParathasController < ApplicationController
   end
 
   def paratha_params
-    params.require(:paratha).permit(:name, :price, :category, :description)
+    params.require(:paratha).permit(:name, :price, :category, :description, images: [])
   end
 end

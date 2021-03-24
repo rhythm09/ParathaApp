@@ -9,6 +9,10 @@
           <%= paratha_form.label :name, "Name:", class: "label" %>
           <%= paratha_form.text_field :name, class: "form-control" %>
         </div>
+        <div class="photos">
+          <%= paratha_form.label :images, "Add photos", class: "label" %>
+          <%= paratha_form.file_field :images, :multiple => true %>
+        </div>
         <div class = "form-group">
           <%= paratha_form.label :price, "Price:", class: "label" %>
           <%= paratha_form.text_field :price, class: "form-control" %>
