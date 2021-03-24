@@ -33,13 +33,16 @@ class ParathasController < ApplicationController
   end
 
   def destroy
-    @paratha.destroy
-    flash[:success] = "Paratha Deleted Successfully"
+    if @paratha.present?
+      @paratha.destroy
+      flash[:success] = "Paratha Deleted Successfully"
+    else
+      flash[:danger] = "Paratha Doesn't Exist"
+    end
     redirect_to root_path
   end
 
   def show1
-    # byebug
     @paratha = Paratha.find_by(id: params[:paratha_id])
     @image = @paratha.images.find_by(id: params[:image_id])
     @image.purge
