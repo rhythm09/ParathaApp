@@ -52,6 +52,5 @@ bin/rails db:migrate
 bin/rails server
 go to link http://127.0.0.1:3000
 
-* heroku deployment link
+ deployment link
 https://parathaapp.herokuapp.com/
-

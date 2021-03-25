@@ -6,9 +6,11 @@ body{
   font-size: 1.4rem;
   color: #800000;
 }
+
 .c1{
   background-color: #B0C4DE;
 }
+
 .login_signup_form{
  width: 100%;
   background-color:#CD5C5C;
@@ -21,8 +23,7 @@ body{
   font-size: 1.4rem;
 }
 
-.form_button {
- 
+.form_button { 
   box-sizing: border-box;
   appearance: none;
   background-color: #800000;
