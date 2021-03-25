@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :users, only: %i(new create show edit update)
   resources :sessions, only: %i(new create destroy)
   get 'image/:paratha_id/:image_id', to: 'parathas#show1', as: 'image'
+  get 'cart/:paratha_id', to: 'cart#add', as:'add_to_cart'
   resources :addresses
 end

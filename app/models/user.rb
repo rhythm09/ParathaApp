@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_one_attached :image
   has_many :addresses
+  has_one :cart
   has_secure_password
   validates :password, confirmation: true
   validates :name, presence: true
