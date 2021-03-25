@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
   before_action :find_user, only: %i(show edit update)
   
+  def show; end
+
   def new
     @user = User.new
   end
+
+  def edit; end
 
   def create
     @user = User.new(user_params)
@@ -15,11 +19,7 @@ class UsersController < ApplicationController
       render :new
     end
   end
-
-  def show; end
-
-  def edit; end
-    
+ 
   def update
     if @user.update(user_params)
       flash[:success] = "Updated Successfully"
