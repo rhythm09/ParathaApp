@@ -1,5 +1,5 @@
 <% @parathas.each do |paratha| %>
-  <div class="w-25 card mx-auto c1 text-center text-danger">
+  <div class="w-50 card mx-auto c1 text-center text-danger">
     <div class="card-header">
       <%= paratha.name %>
     </div>
@@ -19,6 +19,11 @@
         </tr>
       </tbody>
     </table>
+    <% paratha.images.each do |image| %>
+      <div>
+        <%= image_tag(url_for(image), class: "rounded mx-auto d-block ", alt: "Cinque Terre", width: "304", height: "236")  if paratha.images.attached? %>
+      </div>
+    <% end %>
     <div class = "card-footer">
       <% if is_admin? %>
         <%= button_to "Edit Paratha", edit_paratha_path(paratha.id) , method: :get, class: "nav-item btn btn-primary" %>
