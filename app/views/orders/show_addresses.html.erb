@@ -19,10 +19,10 @@
       </tbody>
     </table>
     <div class = "card-footer">
-      <%= button_to "Edit Address", edit_address_path(address.id) , method: :get, class: "nav-item btn btn-primary" %>
+      <%= button_to "Place Order", place_order_path(address.id) , method: :post, class: "form_button" %>
       <br>
-      <%= button_to "Delete Address", address_path(address.id) , method: :delete, class: "nav-item btn btn-primary" %>
     </div>
   </div>
   <br><br>
 <% end %>
+<%= button_to "Add Delivery Address", add_delivery_address_path , method: :get, class: "form_button" %>

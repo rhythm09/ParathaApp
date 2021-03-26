@@ -23,7 +23,6 @@
           <td><%= paratha.description %></td>
           <td><%= cart_paratha.quantity %></td>
           <td><%= total_price %></td>
-
         </tr>
       </tbody>
     </table>
@@ -44,3 +43,5 @@
   </div>
   <br><br>
 <% end %>
+<% @cart = current_user.cart %>
+<%= button_to "Place Order", show_addresses_path, method: :get, class: "form_button" %>
