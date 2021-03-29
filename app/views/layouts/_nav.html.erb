@@ -10,6 +10,7 @@
       <% end %>
       <%= button_to "Show Parathas", parathas_path , method: :get, class: "nav-item btn btn-primary" %>
       <%= button_to "My Cart", carts_path , method: :get, class: "nav-item btn btn-primary" %>
+      <%= button_to "My Orders", show_order_path , method: :get, class: "nav-item btn btn-primary" %>
     </div>
   </nav>
 <% else %>

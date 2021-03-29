@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   post 'order/:id', to: 'orders#create', as: 'place_order'
   get 'order', to: 'orders#add_delivery_address', as: 'add_delivery_address'
   post 'order', to: 'orders#place_order_address', as: 'order_address'
+  get 'order1', to: 'orders#show_orders', as: 'show_order'
 end

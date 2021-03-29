@@ -9,15 +9,16 @@ class OrdersController < ApplicationController
   end
 
   def place_order_address
-
     @address = current_user.addresses.new(address_params)
     @address.save
-    order = Order.new(address_id: @address.id, user_id: current_user.id)
+    t = calc_delivery_time;
+    order = Order.new(address_id: @address.id, user_id: current_user.id, delivery_time: t)
     place_order(order)
   end
 
   def create
-    order = Order.new(address_id: params[:id], user_id: current_user.id)
+    t = calc_delivery_time
+    order = Order.new(address_id: params[:id], user_id: current_user.id, delivery_time: t)
     place_order(order)
   end
 
@@ -40,7 +41,16 @@ class OrdersController < ApplicationController
     redirect_to root_path
   end
 
+  def show_orders 
+    @order1 = current_user.orders
+  end
+
   private
+
+  def calc_delivery_time
+    t = Time.now
+    t = t + 2 * 60 *60
+  end
 
   def address_params
     params.require(:address).permit(:address_line_1, :address_line_2, :city, :state)
