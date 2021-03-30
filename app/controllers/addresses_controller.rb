@@ -22,9 +22,12 @@ class AddressesController < ApplicationController
   end
 
   def destroy
+    @id1 = params[:id]
     @address.destroy
     flash[:success] = "Address Deleted Successfully"
-    redirect_to root_path
+    respond_to do |format|  
+      format.js   
+    end    
   end
 
   def create

@@ -1,3 +1,5 @@
+<div id = "count" >
+</div>
 <% @parathas.each do |paratha| %>
   <div class="w-50 card mx-auto c1 text-center text-danger">
     <div class="card-header">
@@ -28,11 +30,10 @@
       <% if current_user.role.eql?("admin") %>
         <%= button_to "Edit Paratha", edit_paratha_path(paratha.id) , method: :get, class: "nav-item btn btn-primary" %>
       <% else %>
-        <%= form_with url: add_to_cart_path(paratha), method: :get do |form| %>
-          <%= form.label :quantity, "Quantity:", class: "label" %>
-          <%= form.text_field :quantity, class: "form-control" %>
-          <%= form.submit "Add to Cart", class: "form_button" %>
-        <% end %>
+        <% id = paratha.id %>
+        <div id = "quantity<%= id.to_s %>" >
+          <%= link_to 'Add Quantity', add_quantity_path(paratha.id), remote: true %>
+        </div>
       <% end %>
     </div>
   </div>

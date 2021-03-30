@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   before_action :find_cart
+  protect_from_forgery except: :add
 
   def index
     @cart_parathas = CartParatha.where(cart_id: @cart.id)
@@ -9,11 +10,16 @@ class CartsController < ApplicationController
     @cart_paratha = @cart.cart_parathas.where(paratha_id: params[:id])
     if @cart_paratha.present?
       @cart_paratha.update(quantity: params[:quantity])
-      redirect_to root_path
+      respond_to do |format|  
+          format.js  {render template: "carts/add"}
+        end
     else
       @addcart = @cart.cart_parathas.build(paratha_id: params[:id], quantity: params[:quantity])
       if @addcart.save
-        redirect_to root_path
+        @count = @cart.cart_parathas.size
+        respond_to do |format|  
+          format.js  {render template: "carts/add"}
+        end
       else 
         flash[:danger] = @addcart.errors.full_messages
         redirect_to root_path
@@ -23,9 +29,12 @@ class CartsController < ApplicationController
 
   def update
     @cart_detail = CartParatha.find_by(cart_id: @cart.id, paratha_id: params[:id])
+    @id = @cart_detail.id
     if @cart_detail.update(quantity: params[:quantity])
       flash[:success] = "Cart Updated Successfully"
-      redirect_to carts_path
+      respond_to do |format|
+        format.js
+      end
     else 
       flash[:danger] = @cart_detail.errors.full_messages
       redirect_to carts_path
@@ -34,14 +43,28 @@ class CartsController < ApplicationController
 
   def destroy
     @cart_detail = CartParatha.find_by(cart_id: @cart.id, paratha_id: params[:id])
+    @id = @cart_detail.id
     if @cart_detail.present?
       @cart_detail.destroy
       flash[:success] = "Paratha Deleted Successfully from cart"
     else
       flash[:danger] = "Paratha Doesn't Exist"
     end
-    redirect_to carts_path
+    respond_to do |format|
+      format.js
+    end
   end
+
+  def update_quantity
+    @paratha = Paratha.find_by(id: params[:id])
+    @cart_detail = CartParatha.find_by(cart_id: @cart.id, paratha_id: params[:id])
+    @id = @cart_detail.id
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  private
 
   def find_cart
   @cart = current_user.cart

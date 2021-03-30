@@ -6,6 +6,9 @@ class OrdersController < ApplicationController
 
   def add_delivery_address
     @address = Address.new
+    respond_to do |format|
+      format.js
+    end
   end
 
   def place_order_address

@@ -2,7 +2,7 @@
 <% paratha = cart_paratha.paratha %>
 <% total_price = 0 %>
 <% total_price = paratha.price * cart_paratha.quantity if cart_paratha.quantity.present? %>
-  <div class="w-50 card mx-auto c1 text-center text-danger">
+  <div class="w-50 card mx-auto c1 text-center text-danger", id = "cart<%= cart_paratha.id %>">
     <div class="card-header">
       <%= paratha.name %>
     </div>
@@ -21,8 +21,8 @@
           <td><%= paratha.price %></td>
           <td><%= paratha.category %></td>
           <td><%= paratha.description %></td>
-          <td><%= cart_paratha.quantity %></td>
-          <td><%= total_price %></td>
+          <td id = "quantity<%= cart_paratha.id %>"><%= cart_paratha.quantity %></td>
+          <td id = "total_price<%= cart_paratha.id%>"><%= total_price %></td>
         </tr>
       </tbody>
     </table>
@@ -32,12 +32,10 @@
       </div>
     <% end %>
     <div class = "card-footer">
-      <%= form_with url: cart_path(paratha.id), method: :patch do |form| %>
-        <%= form.label :quantity, "Update_Quantity:", class: "label" %>
-        <%= form.text_field :quantity, class: "form-control" %>
-        <%= form.submit "Update Cart", class: "form_button" %>
-      <% end %>
-      <%= button_to "Delete From Cart", cart_path(paratha.id) , method: :delete, class: "form_button" %>
+      <div id = "update<%= cart_paratha.id.to_s %>" >
+          <%= link_to 'Update Quantity', update_quantity_path(paratha.id), remote: true %>
+      </div>
+      <%= button_to "Delete From Cart", cart_path(paratha.id) , method: :delete, remote: true, class: "form_button" %>
       <%= render partial: "shared/flash" %>
     </div>
   </div>

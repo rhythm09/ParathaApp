@@ -21,16 +21,9 @@
           <td><%= order_paratha.quantity %></td>
           <td><%= order_paratha.price %></td>
         </tr>
+        <% end %>
       </tbody>
     </table>
-    <% paratha.images.each do |image| %>
-      <div>
-        <%= image_tag(url_for(image), class: "rounded mx-auto d-block ", alt: "Cinque Terre", width: "304", height: "236")  if paratha.images.attached? %>
-      </div>
-    <% end %>
-    
-      <% end %>
     </div>
-  </div>
   <br><br>
 <% end %>

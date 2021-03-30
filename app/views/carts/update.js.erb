@@ -1,0 +1,17 @@
+
+<% @cart_paratha = CartParatha.find_by(id: @id) %>
+<% paratha_id = @cart_paratha.paratha_id %>
+<% @paratha = Paratha.find_by(id: paratha_id) %>
+<% price = @paratha.price %>
+<% quantity = @cart_paratha.quantity %>
+<% total_price = quantity * price %>
+var quantity1 = <%= quantity.to_s %>
+var total = <%= total_price.to_s %>
+<% q = "#quantity" + @id.to_s %>
+var q1 = '<%= q %>';  
+<% t = "#total_price" + @id.to_s %>
+var t1 = '<%= t %>';  
+$(q1).text(quantity1);
+$(t1).text(total);
+
+

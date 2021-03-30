@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  # protect_from_forgery unless: -> { request.format.js ? }
   helper_method :current_user, :logged_in?, :is_admin
   
   def current_user

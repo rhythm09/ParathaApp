@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   get 'order', to: 'orders#add_delivery_address', as: 'add_delivery_address'
   post 'order', to: 'orders#place_order_address', as: 'order_address'
   get 'order1', to: 'orders#show_orders', as: 'show_order'
+  get 'parathas1/:id', to: 'parathas#add_quantity', as: 'add_quantity'
+  get 'carts_update/:id', to: 'carts#update_quantity', as: 'update_quantity' 
 end
