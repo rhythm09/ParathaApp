@@ -17,7 +17,6 @@ class ParathasController < ApplicationController
       flash[:success] = "Paratha Added Successfully"
       redirect_to root_path
     else
-      flash.now[:danger] = @paratha.errors.full_messages
       render :new  
     end
   end
@@ -27,19 +26,20 @@ class ParathasController < ApplicationController
       flash[:success] = "Paratha Updated Successfully"
       redirect_to root_path
     else 
-      flash.now[:danger] = @paratha.errors.full_messages
       render :edit
     end
   end
 
   def destroy
     if @paratha.present?
-      @paratha.destroy
-      flash[:success] = "Paratha Deleted Successfully"
-    else
-      flash[:danger] = "Paratha Doesn't Exist"
+      if @paratha.destroy
+        flash[:success] = "Paratha Deleted Successfully"
+        redirect_to root_path
+      else
+        flash[:danger] = "Paratha Doesn't Exist"
+        render :edit
+      end
     end
-    redirect_to root_path
   end
 
   def delete_image
