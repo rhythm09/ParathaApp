@@ -31,7 +31,15 @@
       <% end %>
     </div>
     <div class = "card-footer">
-      <%= render partial: "shared/flash" %>
+      <% if @paratha.errors.full_messages.any? %>
+        <% @paratha.errors.full_messages.each do |error_message| %>
+          <div class = "alert alert-danger alert-dismissible" role = "alert">
+            <%= error_message %><br/>
+          </div>
+        <% end %>
+      <% else %>
+        <%= render partial: "shared/flash" %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -10,8 +10,7 @@
       </div>
     </div>
     <div class = "card-footer">
-      <%= render partial: "shared/flash" %>
+      <%= render partial: "/shared/errors", locals: { object: @user } %>
     </div>
   </div>
 </div>
-
