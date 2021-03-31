@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     if @user.save
       @cart = @user.create_cart
       session[:current_user_id] = @user.id
+      UserMailer.with(user: @user).welcome_mail.deliver_later
       redirect_to root_path
     else
       flash.now[:danger] = @user.errors.full_messages

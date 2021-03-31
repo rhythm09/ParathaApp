@@ -35,6 +35,7 @@ class OrdersController < ApplicationController
         order.order_parathas.create(paratha_id: @paratha.id, quantity: cart_paratha.quantity, price: price)
         @cart.cart_parathas.clear
       end
+      UserMailer.with(order: order).place_order.deliver_later
       flash[:success] = "Order placed Successfully"
     else
       flash[:danger] = @order.errors.full_messages
