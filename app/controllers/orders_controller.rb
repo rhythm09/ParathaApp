@@ -25,8 +25,6 @@ class OrdersController < ApplicationController
     place_order(order)
   end
 
-  private
-
   def place_order(order)
     if order.save
       @cart = current_user.cart
@@ -47,8 +45,15 @@ class OrdersController < ApplicationController
   def show_orders 
     @order1 = current_user.orders
   end
-
-  private
+  
+  def get_more_details
+    @order = Order.find_by(id: params[:id])
+    @address = @order.address 
+    @id = params[:id]
+    respond_to do |format|
+      format.js
+    end
+  end  
 
   def calc_delivery_time
     t = Time.now

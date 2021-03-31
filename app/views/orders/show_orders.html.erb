@@ -24,6 +24,9 @@
         <% end %>
       </tbody>
     </table>
+    <div class = "card-footer", id = "show_details<%= order.id %>">
+      <%= link_to "More Details", more_details_path(order) , method: :get, remote: true, class: "form_button" %>
+    </div>
     </div>
   <br><br>
 <% end %>
