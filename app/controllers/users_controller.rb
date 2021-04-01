@@ -15,7 +15,6 @@ class UsersController < ApplicationController
       session[:current_user_id] = @user.id
       redirect_to root_path 
     else
-      flash.now[:danger] = @user.errors.full_messages
       render :new
     end
   end
@@ -25,7 +24,6 @@ class UsersController < ApplicationController
       flash[:success] = "Updated Successfully"
       redirect_to root_path
     else 
-      flash.now[:danger] = @user.errors.full_messages
       render :edit
     end
   end

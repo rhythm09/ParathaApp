@@ -1,0 +1,33 @@
+<div class = "container-fluid">
+  <div class = "card w-50 mx-auto" >
+    <div class = "card-header c1 text-center text-danger">
+      <h1>Edit Address</h1>
+    </div>
+    <div class = "card-body c1">
+      <%= form_with(model: @address, url: address_path(@address.id), method: "patch") do |address_form| %>
+        <div class = "form-group">
+          <%= address_form.label :address_line_1, "Address Line 1:", class: "label" %>
+          <%= address_form.text_area :address_line_1, class: "form-control" %>
+        </div>
+        <div class = "form-group">
+          <%= address_form.label :address_line_2, "Address Line 2:", class: "label" %>
+          <%= address_form.text_area :address_line_2, class: "form-control" %>
+        </div>
+        <div class = "form-group">
+          <%= address_form.label :city, "City:", class: "label" %>
+          <%= address_form.text_field :city, class: "form-control" %>
+        </div>
+        <div class = "form-group">
+          <%= address_form.label :state, "State:", class: "label" %>
+          <%= address_form.text_field :state, class: "form-control" %>
+        </div>
+        <div class = "form-group">
+          <%= address_form.submit "Update Address", class: "form_button" %>
+        </div>
+      <% end %>     
+    </div>
+    <div class = "card-footer">
+      <%= render partial: "/shared/errors", locals: { object: @address } %>
+    </div>
+  </div>
+</div>
