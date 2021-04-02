@@ -32,14 +32,12 @@ class ParathasController < ApplicationController
 
   def destroy
     if @paratha.present?
-      if @paratha.destroy
-        flash[:success] = "Paratha Deleted Successfully"
-        redirect_to root_path
-      else
-        flash[:danger] = "Paratha Doesn't Exist"
-        render :edit
-      end
+      @paratha.destroy
+      flash[:success] = "Paratha Deleted Successfully"
+    else
+      flash[:danger] = "Paratha Doesn't Exist"
     end
+    redirect_to root_path
   end
 
   def delete_image

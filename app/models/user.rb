@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_one_attached :image, dependent: :destroy
+  has_one :cart, dependent: :destroy
   has_many :addresses, dependent: :destroy
   has_one_attached :image, dependent: :destroy
   has_secure_password

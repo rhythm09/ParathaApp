@@ -25,8 +25,14 @@
       </div>
     <% end %>
     <div class = "card-footer">
-      <% if is_admin? %>
+      <% if current_user.role.eql?("admin") %>
         <%= button_to "Edit Paratha", edit_paratha_path(paratha.id) , method: :get, class: "nav-item btn btn-primary" %>
+      <% else %>
+        <%= form_with url: add_to_cart_path(paratha), method: :get do |form| %>
+          <%= form.label :quantity, "Quantity:", class: "label" %>
+          <%= form.text_field :quantity, class: "form-control" %>
+          <%= form.submit "Add to Cart", class: "form_button" %>
+        <% end %>
       <% end %>
     </div>
   </div>
