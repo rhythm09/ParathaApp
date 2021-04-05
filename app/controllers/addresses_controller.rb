@@ -47,6 +47,14 @@ class AddressesController < ApplicationController
     end
   end
 
+  def show_addresses
+    @addresses = current_user.addresses
+  end
+
+  def add_delivery_address
+    @address = Address.new
+  end 
+
   private
 
   def find_address
