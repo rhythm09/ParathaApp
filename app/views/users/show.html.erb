@@ -4,7 +4,7 @@
       <h1>My Profile</h1>
     </div>
     <div class = "card-body c1">
-      <%= render partial: "shared/form", locals: { path: edit_user_path(current_user.id), read: true, button_name: "Edit", method_name: "get", status: "show" } %>  
+      <%= render partial: "shared/form", locals: { path: edit_user_registration_path(current_user.id), read: true, button_name: "Edit", method_name: "get", status: "show" } %>  
       <div>
         <%= button_to "Close", root_path, method: :get, class: "form_button" %>
       </div>

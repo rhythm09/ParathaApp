@@ -1,0 +1,31 @@
+<div class = "container-fluid">
+  <div class = "card w-50 mx-auto" >
+    <div class = "card-header c1 text-center text-danger">
+      <h1>Login Page</h1>
+    </div>
+    <div class = "card-body c1">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-group">
+          <%= f.label :email, class: "label" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password,  class: "label" %><br />
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
+          <% if devise_mapping.rememberable? %>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end %>
+        <div class="actions">
+          <%= f.submit "Log in", class: "login_signup_form" %>
+        </div>
+      <% end %>
+    </div>
+    <div class = "card-footer c1">
+      <%= render "users/shared/links" %>
+    </div>
+  </div>
+</div>

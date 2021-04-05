@@ -1,0 +1,41 @@
+<div class = "container-fluid">
+  <div class = "card w-50 mx-auto" >
+    <div class = "card-header c1 text-center text-danger">
+      <h2>Sign up</h2>
+    </div>
+    <div class = "card-body c1">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "users/shared/error_messages", resource: resource %>
+        <div class="form-group">
+          <%= f.label :name, class: "label"%><br />
+          <%= f.text_field :name, autocomplete: "name" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :email, class: "label"%><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password, class: "label" %>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password_confirmation, class: "label" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div> 
+        <div class="form-group">
+          <%= f.label :gender, class: "label" %><br />
+          <%= f.text_field :gender, autocomplete: "gender" %>
+        </div>
+        <div>
+          <%= f.submit "Sign up", class: "login_signup_form" %>
+        </div>
+      <% end %>
+    </div>
+    <div class = "card-footer c1">
+      <%= render "users/shared/links" %>
+    </div>
+  </div>
+</div>

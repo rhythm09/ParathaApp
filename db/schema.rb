@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_25_131654) do
+ActiveRecord::Schema.define(version: 2021_04_03_154205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,28 @@ ActiveRecord::Schema.define(version: 2021_03_25_131654) do
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
+  create_table "order_parathas", force: :cascade do |t|
+    t.integer "quantity"
+    t.integer "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "order_id"
+    t.bigint "paratha_id"
+    t.index ["order_id"], name: "index_order_parathas_on_order_id"
+    t.index ["paratha_id"], name: "index_order_parathas_on_paratha_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "rating"
+    t.datetime "delivery_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.bigint "address_id"
+    t.index ["address_id"], name: "index_orders_on_address_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "parathas", force: :cascade do |t|
     t.string "name"
     t.integer "price"
@@ -83,11 +105,16 @@ ActiveRecord::Schema.define(version: 2021_03_25_131654) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "password_digest"
     t.string "gender"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "role", default: "user"
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -96,4 +123,5 @@ ActiveRecord::Schema.define(version: 2021_03_25_131654) do
   add_foreign_key "cart_parathas", "carts"
   add_foreign_key "cart_parathas", "parathas"
   add_foreign_key "carts", "users"
+  add_foreign_key "order_parathas", "orders"
 end
