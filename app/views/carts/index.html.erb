@@ -1,4 +1,5 @@
 <%= render partial: "shared/flash" %>
+<% cart = current_user.cart %>
 <% @cart_parathas.each do |cart_paratha| %>
 <% paratha = cart_paratha.paratha %>
 <% total_price = 0 %>
@@ -39,8 +40,9 @@
         <%= form.submit "Update Cart", class: "form_button" %>
       <% end %>
       <%= button_to "Delete From Cart", cart_path(paratha.id) , method: :delete, class: "form_button" %>
-      <%= render partial: "/shared/errors", locals: { object: @cart } %>
+      <%= render partial: "/shared/errors", locals: { object: cart } %>
     </div>
   </div>
   <br><br>
 <% end %>
+<%= button_to "Place Order", show_addresses_path, method: :get, class: "form_button" %>
