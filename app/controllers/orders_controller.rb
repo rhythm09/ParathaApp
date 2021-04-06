@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
     end
     redirect_to root_path
   end
-  
+
   def calc_delivery_time
     Time.now + 2 * 60 *60
   end

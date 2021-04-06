@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :parathas, only: %i(new create index edit update destroy)
   resources :users, only: %i(new create show edit update)
   resources :sessions, only: %i(new create destroy)
-  get 'parathas1/:id', to: 'parathas#add_quantity', as: 'add_quantity'
+  get 'add_quantity/:id', to: 'parathas#add_quantity', as: 'add_quantity'
   get 'carts_update/:id', to: 'carts#update_quantity', as: 'update_quantity' 
   get 'order_more_details/:id', to: 'orders#get_more_details', as: 'more_details'
   resources :carts, only: %i(index update destroy)

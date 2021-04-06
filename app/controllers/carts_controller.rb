@@ -41,7 +41,7 @@ class CartsController < ApplicationController
   end
 
   def update_quantity
-    @paratha = Paratha.find_by(id: params[:id])
+    @paratha = @cart_paratha.paratha
     @id = @cart_paratha.id
     respond_to do |format|
       format.js { render layout: false } 
