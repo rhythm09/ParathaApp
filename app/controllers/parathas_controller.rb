@@ -46,14 +46,14 @@ class ParathasController < ApplicationController
     @id = @image.id
     @image.purge
     respond_to do |format|  
-      format.js   
+      format.js { render layout: false }  
     end  
   end
 
   def add_quantity
     @paratha = Paratha.find_by(id: params[:id])
     respond_to do |format|
-      format.js
+      format.js {render layout: false}
     end
   end
 

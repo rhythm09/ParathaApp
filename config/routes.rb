@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   delete 'image/:paratha_id/:image_id', to: 'parathas#delete_image', as: 'image'
   get 'cart/:id', to: 'carts#add', as: 'add_to_cart'
   get 'show_addresses', to: 'addresses#show_addresses', as: 'show_addresses'
-   post 'order/:id', to: 'orders#create', as: 'place_order'
+  post 'order/:id', to: 'orders#create', as: 'place_order'
   get 'delivery_address', to: 'addresses#add_delivery_address', as: 'add_delivery_address'
   post 'order', to: 'orders#place_order_address', as: 'order_address'
 end

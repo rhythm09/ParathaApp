@@ -35,16 +35,6 @@ class OrdersController < ApplicationController
     redirect_to root_path
   end
   
-  def get_more_details
-    @order = Order.find_by(id: params[:id])
-    @address = @order.address 
-    @id = params[:id]
-    respond_to do |format|
-      format.js
-    end
-  end  
-
-
   def calc_delivery_time
     Time.now + 2 * 60 *60
   end

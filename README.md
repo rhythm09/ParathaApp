@@ -48,21 +48,9 @@ cp config/database.yml.sample config/database.yml
 bin/rails db:create
 bin/rails db:migrate
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 * start rails server
 bin/rails server
 go to link http://127.0.0.1:3000
 
-<<<<<<< HEAD
-
-=======
 * heroku deployment link
 https://parathaapp.herokuapp.com/
-<<<<<<< HEAD
->>>>>>> master
-
-=======
->>>>>>> master

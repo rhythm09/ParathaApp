@@ -36,30 +36,13 @@ class AddressesController < ApplicationController
 
 
   def destroy
-    @id1 = params[:id]
+    @id = params[:id]
     @address.destroy
     flash[:success] = "Address Deleted Successfully"
     respond_to do |format|  
-      format.js   
+      format.js { render layout: false }   
     end    
   end
-
-
-  
-
-
-  # def destroy
-  #   if @address.present?
-  #     if @address.destroy
-  #       flash[:success] = "Address Deleted Successfully"
-  #       redirect_to root_path
-  #     else 
-  #       render :edit
-  #     end
-  #   else
-  #     flash[:danger] = "Address is missing"
-  #   end
-  # end
 
   def show_addresses
     @addresses = current_user.addresses
@@ -68,7 +51,7 @@ class AddressesController < ApplicationController
   def add_delivery_address
     @address = Address.new
     respond_to do |format|
-      format.js
+      format.js { render layout: false } 
     end
   end 
 

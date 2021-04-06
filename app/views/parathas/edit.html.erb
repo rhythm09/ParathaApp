@@ -9,7 +9,7 @@
         <div >
           <%= image_tag(url_for(image), class: "rounded mx-auto d-block ", alt: "Cinque Terre", width: "304", height: "236")  if @paratha.images.attached? %>
         </div>
-        <%= button_to "Delete Image", image_path(@paratha,image), method: :get,remote: true, class: "form_button" %> 
+        <%= button_to "Delete Image", image_path(@paratha,image), method: :delete,remote: true, class: "form_button" %> 
       </div>
       <% end %>
       <%= form_with(model: @paratha, url: paratha_path(@paratha.id), method: "patch") do |paratha_form| %>

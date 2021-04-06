@@ -1,4 +1,3 @@
-
 <% @cart_paratha = CartParatha.find_by(id: @id) %>
 <% paratha_id = @cart_paratha.paratha_id %>
 <% @paratha = Paratha.find_by(id: paratha_id) %>
@@ -13,5 +12,3 @@ var q1 = '<%= q %>';
 var t1 = '<%= t %>';  
 $(q1).text(quantity1);
 $(t1).text(total);
-
-
