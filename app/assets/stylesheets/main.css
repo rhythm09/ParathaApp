@@ -27,7 +27,7 @@ body{
   box-sizing: border-box;
   appearance: none;
   background-color: #800000;
-  border: 2px solid $red;
+  border: 2px solid red;
   border-radius: 0.6em;
   color: $red;
   cursor: pointer;
