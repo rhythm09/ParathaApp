@@ -1,5 +1,5 @@
 <% delete = "#delete" + @id.to_s %>
 var delete_id = '<%= delete %>'; 
 $(delete_id).bind('ajax:success', function() {   
-   $(delete_id).fadeOut();
+  $(delete_id).fadeOut();
 });   
