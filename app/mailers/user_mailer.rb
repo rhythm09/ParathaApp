@@ -1,10 +1,9 @@
 class UserMailer < ApplicationMailer
   
-
   def welcome_mail
-  @user = params[:user]
-  @url = 'https://parathaapp.herokuapp.com/'
-  mail(to: @user.email, subject: 'Welcome to Paratha Application')
+    @user = params[:user]
+    @url = 'https://parathaapp.herokuapp.com/'
+    mail(to: @user.email, subject: 'Welcome to Paratha Application')
   end
 
   def place_order
