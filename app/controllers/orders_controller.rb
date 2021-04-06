@@ -29,6 +29,7 @@ class OrdersController < ApplicationController
         price = cart_paratha.quantity * @paratha.price
         order.order_parathas.create(paratha_id: @paratha.id, quantity: cart_paratha.quantity, price: price)
       end
+      UserMailer.with(order: order).place_order.deliver_later
       @cart.cart_parathas.clear
       flash[:success] = "Order placed Successfully"
     end
