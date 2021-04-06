@@ -43,8 +43,18 @@ class ParathasController < ApplicationController
   def delete_image
     @paratha = Paratha.find_by(id: params[:paratha_id])
     @image = @paratha.images.find_by(id: params[:image_id])
+    @id = @image.id
     @image.purge
-    redirect_to edit_paratha_path(@paratha.id)
+    respond_to do |format|  
+      format.js { render layout: false }  
+    end  
+  end
+
+  def add_quantity
+    @paratha = Paratha.find_by(id: params[:id])
+    respond_to do |format|
+      format.js {render layout: false}
+    end
   end
 
   private

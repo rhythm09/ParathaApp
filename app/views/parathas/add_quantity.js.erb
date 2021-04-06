@@ -1,0 +1,4 @@
+<% id = @paratha.id %>
+<% quantity = "#quantity" + id.to_s %>
+var quantity_id = '<%= quantity %>';  
+$(quantity_id).html("<%= j render 'add_quantity', id: id %>")
