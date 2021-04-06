@@ -1,2 +1,0 @@
-module ParathasHelper
-end

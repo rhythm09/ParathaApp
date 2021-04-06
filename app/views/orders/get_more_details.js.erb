@@ -1,7 +1,0 @@
-
-<% address_line_1 = @address.address_line_1 %>
-<% address_line_2 = @address.address_line_2 %>
-<% city = @address.city %>
-<% state = @address.state %>
-var q1 = '<%= "#show_details" + @id.to_s %>'; 
-$(q1).html('<%= j render partial: '/orders/get_more_details', locals: { address_line_1: address_line_1, address_line_2: address_line_2, city: city, state: state} %>')  
