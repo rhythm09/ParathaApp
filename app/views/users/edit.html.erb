@@ -4,14 +4,13 @@
       <h1>Edit</h1>
     </div>
     <div class = "card-body c1">
-      <%= render partial: "shared/form", locals: {path: user_path(current_user.id), read: false, button_name: "Update", method_name: "patch", status: "edit"} %>  
+      <%= render partial: "shared/form", locals: { path: user_path(current_user.id), read: false, button_name: "Update", method_name: "patch", status: "edit" } %>  
       <div>
         <%= button_to "Close", root_path, method: :get, class: "form_button" %>
       </div>
     </div>
     <div class = "card-footer">
-      <%= render partial: "shared/flash" %>
+      <%= render partial: "/shared/errors", locals: { object: @user } %>
     </div>
   </div>
 </div>
-

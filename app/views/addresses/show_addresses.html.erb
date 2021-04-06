@@ -1,0 +1,30 @@
+<% @addresses.each do |address| %>
+  <div class="w-50 card mx-auto c1 text-center text-danger">
+    <table class="card-table table">
+      <thead>
+        <tr>
+          <th scope = "col">Address Line 1</th>
+          <th scope = "col">Address Line 2</th>
+          <th scope = "col">City</th>
+          <th scope = "col">State</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= address.address_line_1 %></td>
+          <td><%= address.address_line_2 %></td>
+          <td><%= address.city %></td>
+          <td><%= address.state %></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class = "card-footer">
+      <%= button_to "Place Order", place_order_path(address.id) , method: :post, class: "form_button" %>
+      <br>
+    </div>
+  </div>
+  <br><br>
+<% end %>
+<%= button_to "Add Delivery Address", add_delivery_address_path , method: :get, remote: true, class: "form_button" %>
+<div id = "add_address" ></div>
+

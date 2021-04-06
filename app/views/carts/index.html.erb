@@ -1,3 +1,6 @@
+<%= render partial: "shared/flash" %>
+<% cart = current_user.cart %>
+>>>>>>> master
 <% @cart_parathas.each do |cart_paratha| %>
 <% paratha = cart_paratha.paratha %>
 <% total_price = 0 %>
@@ -36,10 +39,9 @@
           <%= link_to 'Update Quantity', update_quantity_path(paratha.id), remote: true %>
       </div>
       <%= button_to "Delete From Cart", cart_path(paratha.id) , method: :delete, remote: true, class: "form_button" %>
-      <%= render partial: "shared/flash" %>
+      <%= render partial: "/shared/errors", locals: { object: cart } %>
     </div>
   </div>
   <br><br>
 <% end %>
-<% @cart = current_user.cart %>
 <%= button_to "Place Order", show_addresses_path, method: :get, class: "form_button" %>

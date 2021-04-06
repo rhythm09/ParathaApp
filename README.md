@@ -61,5 +61,8 @@ go to link http://127.0.0.1:3000
 =======
 * heroku deployment link
 https://parathaapp.herokuapp.com/
+<<<<<<< HEAD
 >>>>>>> master
 
+=======
+>>>>>>> master

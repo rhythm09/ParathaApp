@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
-  # protect_from_forgery unless: -> { request.format.js ? }
-  helper_method :current_user, :logged_in?, :is_admin
+  helper_method :current_user, :logged_in?, :is_admin?
   
   def current_user
     @current_user ||= User.find_by(id: session[:current_user_id])
@@ -10,7 +9,7 @@ class ApplicationController < ActionController::Base
     current_user.present?  
   end
 
-  def is_admin
+  def is_admin?
     current_user.role.eql?("admin")
   end
 end

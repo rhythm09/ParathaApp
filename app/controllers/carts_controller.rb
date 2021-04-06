@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
   before_action :find_cart
   protect_from_forgery except: :add
+  before_action :find_cart_parathas, only: %i(add update destroy)
 
   def index
     @cart_parathas = CartParatha.where(cart_id: @cart.id)
@@ -11,8 +12,8 @@ class CartsController < ApplicationController
     if @cart_paratha.present?
       @cart_paratha.update(quantity: params[:quantity])
       respond_to do |format|  
-          format.js  {render template: "carts/add"}
-        end
+        format.js  { render template: "carts/add" }
+      end
     else
       @addcart = @cart.cart_parathas.build(paratha_id: params[:id], quantity: params[:quantity])
       if @addcart.save
@@ -20,9 +21,6 @@ class CartsController < ApplicationController
         respond_to do |format|  
           format.js  {render template: "carts/add"}
         end
-      else 
-        flash[:danger] = @addcart.errors.full_messages
-        redirect_to root_path
       end
     end
   end
@@ -35,9 +33,6 @@ class CartsController < ApplicationController
       respond_to do |format|
         format.js
       end
-    else 
-      flash[:danger] = @cart_detail.errors.full_messages
-      redirect_to carts_path
     end 
   end
 
@@ -46,12 +41,9 @@ class CartsController < ApplicationController
     @id = @cart_detail.id
     if @cart_detail.present?
       @cart_detail.destroy
-      flash[:success] = "Paratha Deleted Successfully from cart"
-    else
-      flash[:danger] = "Paratha Doesn't Exist"
-    end
-    respond_to do |format|
-      format.js
+      respond_to do |format|
+        format.js
+      end
     end
   end
 
@@ -67,6 +59,10 @@ class CartsController < ApplicationController
   private
 
   def find_cart
-  @cart = current_user.cart
+    @cart = current_user.cart
+  end
+
+  def find_cart_parathas
+    @cart_paratha = @cart.cart_parathas.find_by(paratha_id: params[:id])
   end
 end
