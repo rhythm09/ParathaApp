@@ -1,0 +1,5 @@
+<%= form_with url: cart_path(@paratha.id), method: :patch, local: false do |form| %>
+  <%= form.label :quantity, "Update_Quantity:", class: "label" %>
+  <%= form.text_field :quantity, class: "form-control" %>
+  <%= form.submit "Update Cart", class: "form_button" %>
+<% end %>

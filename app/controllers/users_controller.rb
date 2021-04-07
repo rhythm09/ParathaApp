@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     if @user.save
       @cart = @user.create_cart
       session[:current_user_id] = @user.id
+      MailerJob.perform_later @user
       redirect_to root_path
     else
       render :new

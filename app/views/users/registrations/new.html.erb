@@ -29,6 +29,10 @@
           <%= f.label :gender, class: "label" %><br />
           <%= f.text_field :gender, autocomplete: "gender" %>
         </div>
+        <div class = "form-group">
+          <%= f.label :image, "Profile Photo:", class: "label" %>
+          <%= f.file_field :image, class: "form-control" %>
+        </div>
         <div>
           <%= f.submit "Sign up", class: "login_signup_form" %>
         </div>

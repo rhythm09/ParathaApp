@@ -1,0 +1,23 @@
+<h1>Thanks For Ordering Here are Order Details</h1>
+<% id = @order.id %>
+<h1>Order No:<%= id %></h1>
+<% name = @user.name %>
+<h1>Name:<%= name %></h1>
+<table>
+  <tr>
+    <th>Paratha Name</th>
+    <th>Quantity</th>
+    <th>Price</th>
+  </tr>
+  <% @order_parathas.each do |order_paratha| %>
+    <% @paratha = Paratha.find_by(id: order_paratha.paratha_id) %>
+    <tr>
+      <% paratha_name = @paratha.name %>
+      <% quantity = order_paratha.quantity %>
+      <% price = order_paratha.price %>
+      <td><%= paratha_name %></td>
+      <td><%= quantity %></td>
+      <td><%= price %></td>
+    </tr>
+  <% end %>
+</table>

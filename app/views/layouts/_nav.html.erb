@@ -1,22 +1,23 @@
 <% if user_signed_in? %>
   <nav class = "navbar navbar-dark bg-dark"> 
     <div class = "nav navbar ml-auto">
-      <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "nav-item btn btn-primary" %>
-      <%= button_to "My Profile", show_user_path(current_user.id), method: :get, class: "nav-item btn btn-primary" %>  
-      <%= button_to "Add Address", new_address_path, method: :get, class: "nav-item btn btn-primary" %>
-      <%= button_to "Show Addresses", addresses_path , method: :get, class: "nav-item btn btn-primary" %>
+      <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "nav-item btn btn-primary mr-8 btn-lg" %>
+      <%= button_to "My Profile", show_user_path(current_user.id), method: :get, class: "nav-item btn btn-primary mr-8 btn-lg" %>  
+      <%= button_to "Add Address", new_address_path, method: :get, class: "nav-item btn btn-primary mr-8 btn-lg" %>
+      <%= button_to "Show Addresses", addresses_path , method: :get, class: "nav-item btn btn-primary mr-8 btn-lg" %>
       <% if is_admin? %>
-        <%= button_to "Add Paratha", new_paratha_path, method: :get, class: "nav-item btn btn-primary" %>
+        <%= button_to "Add Paratha", new_paratha_path, method: :get, class: "nav-item btn btn-primary mr-8 btn-lg" %>
       <% end %>
-      <%= button_to "Show Parathas", parathas_path , method: :get, class: "nav-item btn btn-primary" %>
-      <%= button_to "My Cart", carts_path , method: :get, class: "nav-item btn btn-primary" %>
+      <%= button_to "Show Parathas", parathas_path , method: :get, class: "nav-item btn btn-primary mr-8 btn-lg" %>
+      <%= button_to "My Cart", carts_path , method: :get, class: "nav-item btn btn-primary mr-8 btn-lg" %>
+      <%= button_to "My Orders", orders_path , method: :get, class: "nav-item btn btn-primary mr-8 btn-lg" %>
     </div>
   </nav>
 <% else %>
   <nav class = "navbar navbar-dark bg-dark"> 
     <div class = "nav navbar ml-auto">
-      <%= button_to "Login", new_user_session_path, method: :get, class: "nav-item btn btn-primary" %>
-      <%= button_to "Sign Up", new_user_registration_path , method: :get, class: "nav-item btn btn-primary"  %>
+      <%= button_to "Login", new_user_session_path, method: :get, class: "nav-item btn btn-primary mr-8 btn-lg" %>
+      <%= button_to "Sign Up", new_user_registration_path , method: :get, class: "nav-item btn btn-primary mr-8 btn-lg"  %>
     </div>
   </nav>
 <% end %>

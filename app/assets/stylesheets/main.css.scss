@@ -13,7 +13,7 @@ body{
 
 .login_signup_form{
  width: 100%;
-  background-color:#CD5C5C;
+  background-color: #CD5C5C;
   color: 008080;
   padding: 14px 20px;
   margin: 8px 0;
@@ -27,9 +27,9 @@ body{
   box-sizing: border-box;
   appearance: none;
   background-color: #800000;
-  border: 2px solid $red;
+  border: 2px solid red;
   border-radius: 0.6em;
-  color: $red;
+  color: red;
   cursor: pointer;
   display: flex;
   align-self: center;
@@ -49,6 +49,4 @@ body{
     color: #fff;
     outline: 0;
   }
-.inline {
-  display: inline-block; 
 }

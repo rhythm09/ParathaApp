@@ -1,0 +1,29 @@
+<% current_user.orders.each do |order| %>
+  <div class="w-50 card mx-auto c1 text-center text-danger">
+    <div class="card-header">
+      <h1>Order No</h1>
+      <%= order.id %>
+    </div>
+    <table class="card-table table">
+      <thead>
+        <tr>
+          <th scope = "col">Paratha Name</th>
+          <th scope = "col">Quantity</th>
+          <th scope = "col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orderparathas = order.order_parathas %>
+        <% @orderparathas.each do |order_paratha| %>
+        <% paratha = Paratha.find_by(id: order_paratha.paratha_id) %>
+        <tr>
+          <td><%= paratha.name %></td>
+          <td><%= order_paratha.quantity %></td>
+          <td><%= order_paratha.price %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+  <br><br>
+<% end %>
