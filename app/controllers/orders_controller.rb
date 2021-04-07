@@ -30,8 +30,10 @@ class OrdersController < ApplicationController
         order.order_parathas.create(paratha_id: @paratha.id, quantity: cart_paratha.quantity, price: price)
       end
       OrderMailerJob.perform_later order
+      pending = "you have " + Order.count.to_s + "orders"
       @cart.cart_parathas.clear
       flash[:success] = "Order placed Successfully"
+      ActionCable.server.broadcast("order_channel", pending)
     end
     redirect_to root_path
   end
