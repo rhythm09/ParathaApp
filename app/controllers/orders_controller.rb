@@ -18,6 +18,9 @@ class OrdersController < ApplicationController
     place_order(order)
   end
 
+  def pending_orders
+  end
+
   private
 
   def place_order(order)

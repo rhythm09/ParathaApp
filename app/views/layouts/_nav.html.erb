@@ -11,6 +11,9 @@
       <%= button_to "Show Parathas", parathas_path , method: :get, class: "nav-item btn btn-primary mr-8 btn-lg" %>
       <%= button_to "My Cart", carts_path , method: :get, class: "nav-item btn btn-primary mr-8 btn-lg" %>
       <%= button_to "My Orders", orders_path , method: :get, class: "nav-item btn btn-primary mr-8 btn-lg" %>
+      <% if is_admin? %>
+        <%= button_to "Show Pending Orders", pending_orders_path, method: :get, class: "nav-item btn btn-primary mr-8 btn-lg" %>
+      <% end %>
     </div>
   </nav>
 <% else %>
