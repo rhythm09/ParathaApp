@@ -10,6 +10,8 @@ class UserMailer < ApplicationMailer
     @order = params[:order]
     @user = @order.user
     @order_parathas = @order.order_parathas
+    attachments['filename.pdf'] = File.read('/home/lenovo/Documents/CS21S63012071  scoreCard.pdf')
+
     mail(to: @user.email, subject: 'Welcome to Paratha Application')
   end
 end

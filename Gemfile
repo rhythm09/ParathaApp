@@ -58,4 +58,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem "sidekiq", "~> 6.2"
 gem 'redis'
-
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+gem 'stripe'

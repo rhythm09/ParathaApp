@@ -18,4 +18,7 @@ Rails.application.routes.draw do
   get 'delivery_address', to: 'addresses#add_delivery_address', as: 'add_delivery_address'
   post 'order', to: 'orders#place_order_address', as: 'order_address'
   get 'pending_orders', to: 'orders#pending_orders', as: 'pending_orders'
+  put 'execute_order/:id', to: 'orders#execute_order', as: 'execute_order'
+  get 'generate_pdf', to: 'orders#generate_pdf', as: 'generate_pdf'
+  resources :charges
 end

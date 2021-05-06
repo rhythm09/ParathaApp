@@ -19,11 +19,43 @@ class OrdersController < ApplicationController
   end
 
   def pending_orders
+    @orders = Order.where(status: "pending")
   end
 
+  def execute_order
+    @id = params[:id];
+    order = Order.find_by(id: params[:id])
+    order.update(status: "executed")
+    respond_to do |format|
+      format.js { render layout: false }
+    end
+  end
+
+  def generate_pdf
+    @orders = Order.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Orders",
+        page_size: 'A4',
+        template: "orders/generate_pdf.html.erb",
+        layout: "pdf.html",
+        orientation: "Landscape",
+        lowquality: true,
+        zoom: 1,
+        dpi: 75
+      end
+    end
+  end
+
+  def process_payment
+    
+end
   private
 
   def place_order(order)
+    customer = Stripe::Customer.create email: params[:stripeEmail], card: params[:stripeToken]
+    # Stripe::Charge.create customer: customer.id, amount: 500, description: 'hfh', currency: 'usd'
     if order.save
       @cart = current_user.cart
       @cart_parathas = @cart.cart_parathas
@@ -48,4 +80,10 @@ class OrdersController < ApplicationController
   def address_params
     params.require(:address).permit(:address_line_1, :address_line_2, :city, :state)
   end
+
+
+  # def stripe_params
+  #     params.permit :stripeEmail, :stripeToken
+  #   end
+
 end
