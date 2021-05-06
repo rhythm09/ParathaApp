@@ -51,6 +51,18 @@ class OrdersController < ApplicationController
   def process_payment
     
 end
+
+  def show_pdf_invoice
+    byebug
+   @id1=@id
+    respond_to do |format|
+      format.html { render :layout => false }
+      format.pdf do
+    render pdf: "show_pdf_invoice"
+    #render :pdf => "pdf"#, :layout => 'pdf.html.erb'
+      end
+    end
+  end
   private
 
   def place_order(order)
