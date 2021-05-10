@@ -12,7 +12,7 @@ class UserMailer < ApplicationMailer
     @order_parathas = @order.order_parathas
     # attachments['filename.pdf'] = File.read('/home/lenovo/Documents/CS21S63012071  scoreCard.pdf')
      attachments["invoice.pdf"] = WickedPdf.new.pdf_from_string(
-    render_to_string(:pdf => "invoice",:template => 'orders/show_pdf_invoice.pdf.erb', locals: { :@id => @order.id})
+    render_to_string(:pdf => "invoice",:template => 'orders/show_pdf_invoice.pdf.erb', locals: { :@id => @order.id, :@current_user => @user})
   )
 
     mail(to: @user.email, subject: 'Welcome to Paratha Application')

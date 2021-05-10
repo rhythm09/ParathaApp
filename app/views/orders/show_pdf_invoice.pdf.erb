@@ -111,35 +111,36 @@
             <table>
               <tr>
                 <% created_at = @order.created_at %>
+                <% delivery_at = @order.delivery_time %>
                 <td>
                   Order #: <%= @id %><br />
                   Created #: <%= created_at.strftime("%B %d, %Y") %>
+                  Delivery #: <% delivery_at.strftime("%B %d, %Y") %>
                 </td>
               </tr>
             </table>
           </td>
         </tr>
-
         <tr class="information">
           <td colspan="2">
             <table>
+              <% @address = @order.address %>
               <tr>
                 <td>
-                  Sparksuite, Inc.<br />
-                  12345 Sunny Road<br />
-                  Sunnyville, CA 12345
+                  <%= @address.address_line_1 %><br />
+                  <%= @address.address_line_2 %><br />
+                  <%= @address.city %>, <%= @address.state %>
                 </td>
 
                 <td>
-                  Acme Corp.<br />
-                  John Doe<br />
-                  john@example.com
+                  <%= @current_user.name %>
+                  <%= @current_user.email %>
                 </td>
               </tr>
             </table>
           </td>
         </tr>
-
+<!-- 
         <tr class="heading">
           <td>Payment Method</td>
 
@@ -150,52 +151,31 @@
           <td>Check</td>
 
           <td>1000</td>
-        </tr>
+        </tr> -->
 
         <tr class="heading">
-          <td>Item</td>
-
+          <td>Paratha Name</td>
           <td>Price</td>
+          <td>Quantity</td>
+          <td>Amount</td>
         </tr>
-
-        <tr class="item">
-          <td>Website design</td>
-
-          <td>$300.00</td>
-        </tr>
-
-        <tr class="item">
-          <td>Hosting (3 months)</td>
-
-          <td>$75.00</td>
-        </tr>
-
-        <tr class="item last">
-          <td>Domain name (1 year)</td>
-
-          <td>$10.00</td>
-        </tr>
-
+        <% total = 0 %>
+        <% @order.order_parathas.each do |order_paratha| %>
+          <% @paratha = order_paratha.paratha %>
+          <tr class="item">
+            <td><%= @paratha.name %></td>
+            <td>₹<%= @paratha.price %></td>
+            <td><%= order_paratha.quantity %></td>
+            <td>₹<%= order_paratha.price %></td>
+            <% total = total + order_paratha.price %>
+          </tr>
+        <% end %>
         <tr class="total">
           <td></td>
 
-          <td>Total: $385.00</td>
+          <td>Total: ₹<%= total %></td>
         </tr>
       </table>
     </div>
   </body>
 </html>
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-
-
