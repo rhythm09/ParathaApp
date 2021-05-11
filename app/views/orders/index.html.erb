@@ -1,3 +1,10 @@
+<head>
+  <style type="text/css">
+
+
+/* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
+  </style>
+</head>
 <% @orders.each do |order| %>
   <div class="w-50 card mx-auto c1 text-center text-danger">
     <div class="card-header">
@@ -24,6 +31,13 @@
         <% end %>
       </tbody>
     </table>
+    <% if order.rating == 0 %>
+      <div class = "card-footer">
+       <div id = "give_ratings<%= order.id.to_s %>" >
+          <%= link_to 'Give ratings', give_rating_path(order.id), remote: true %>
+        </div>
+      </div>    
+    <% end %> 
   </div>
   <br><br>
 <% end %>

@@ -63,6 +63,11 @@ end
       end
     end
   end
+
+  def give_rating
+    
+  end
+  
   private
 
   def place_order(order)
