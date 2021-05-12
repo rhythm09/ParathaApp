@@ -65,7 +65,19 @@ end
   end
 
   def give_rating
-    
+
+    @order = Order.find_by(id: params[:id])
+    respond_to do |format|
+      format.js {render layout: false}
+    end
+  end
+
+  def set_rating   
+    @order=Order.find_by(id: params[:id])
+    @order.update(rating: params[:rating1])
+    respond_to do |format|
+      format.js {render layout: false}
+    end
   end
   
   private

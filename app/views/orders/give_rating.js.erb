@@ -1,0 +1,5 @@
+
+<% id = @order.id %>
+<% rating = "#give_rating" + id.to_s %>
+var rating_id = '<%= rating %>';  
+$(rating_id).html("<%= j render 'give_rating', id: id %>")

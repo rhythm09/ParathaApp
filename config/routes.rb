@@ -21,5 +21,6 @@ Rails.application.routes.draw do
   put 'execute_order/:id', to: 'orders#execute_order', as: 'execute_order'
   get 'generate_pdf', to: 'orders#generate_pdf', as: 'generate_pdf'
   resources :charges
-  put 'give_rating/:id', to: 'orders#give_rating', as: 'give_rating'
+  get 'give_rating/:id', to: 'orders#give_rating', as: 'give_rating'
+  get 'set_rating/:id', to: 'orders#set_rating', as: 'set_rating'
 end

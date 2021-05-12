@@ -1,0 +1,117 @@
+<style type="text/css">
+  .rating<%=id%> {
+  display: inline-block;
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+  font-size: 50px;
+}
+
+.rating<%=id%> label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  cursor: pointer;
+}
+
+.rating<%=id%> label:last-child {
+  position: static;
+}
+
+.rating<%=id%> label:nth-child(1) {
+  z-index: 5;
+}
+
+.rating<%=id%> label:nth-child(2) {
+  z-index: 4;
+}
+
+.rating<%=id%> label:nth-child(3) {
+  z-index: 3;
+}
+
+.rating<%=id%> label:nth-child(4) {
+  z-index: 2;
+}
+
+.rating<%=id%> label:nth-child(5) {
+  z-index: 1;
+}
+
+.rating<%=id%> label input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.rating<%=id%> label .icon<%=id%> {
+  float: left;
+  color: transparent;
+}
+
+.rating<%=id%> label:last-child .icon<%=id%> {
+  color: #000;
+}
+
+.rating<%=id%>:not(:hover) label input:checked ~ .icon<%=id%>,
+.rating<%=id%>:hover label:hover input ~ .icon<%=id%> {
+  color: #09f;
+}
+
+.rating<%=id%> label input:focus:not(:checked) ~ .icon<%=id%>:last-child {
+  color: #000;
+  text-shadow: 0 0 5px #09f;
+}
+</style>
+<form class="rating<%=id%>">
+  <label>
+    <input type="radio" name="stars<%=id%>" value="1" onclick="myFunction()"/>
+    <span class="icon<%=id%>">★</span>
+  </label>
+  <label>
+    <input type="radio" name="stars<%=id%>" value="2"  onclick="myFunction()"/>
+    <span class="icon<%=id%>">★</span>
+    <span class="icon<%=id%>">★</span>
+  </label>
+  <label>
+    <input type="radio" name="stars<%=id%>" value="3" onclick="myFunction()"/>
+    <span class="icon<%=id%>">★</span>
+    <span class="icon<%=id%>">★</span>
+    <span class="icon<%=id%>">★</span>   
+  </label>
+  <label>
+    <input type="radio" name="stars<%=id%>" value="4" onclick="myFunction()"/>
+    <span class="icon<%=id%>">★</span>
+    <span class="icon<%=id%>">★</span>
+    <span class="icon<%=id%>">★</span>
+    <span class="icon<%=id%>">★</span>
+  </label>
+  <label>
+    <input type="radio" name="stars<%=id%>" value="5" onclick="myFunction()"/>
+    <span class="icon<%=id%>">★</span>
+    <span class="icon<%=id%>">★</span>
+    <span class="icon<%=id%>">★</span>
+    <span class="icon<%=id%>">★</span>
+    <span class="icon<%=id%>">★</span>
+  </label>
+</form>
+<form method = "get" action="set_rating/<%=id%>" data-remote = "true">
+<input type="hidden" id="demo<%=id%>" name="rating1">
+<input type="Submit" class = "nav-item btn btn-primary mr-8 btn-lg">
+</form>
+<script>
+function myFunction() {
+var ele = document.getElementsByName('stars<%=id%>');
+            
+            for(i = 0; i < ele.length; i++) {
+                if(ele[i].checked)
+                document.getElementById("demo<%=id%>").value
+                        = ele[i].value;
+                
+                      
+            }
+}
+</script>
+</script>

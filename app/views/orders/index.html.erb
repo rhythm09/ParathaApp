@@ -32,11 +32,16 @@
       </tbody>
     </table>
     <% if order.rating == 0 %>
+    <% id = order.id %> 
       <div class = "card-footer">
-       <div id = "give_ratings<%= order.id.to_s %>" >
+       <div id = "give_rating<%= order.id.to_s %>" >
           <%= link_to 'Give ratings', give_rating_path(order.id), remote: true %>
         </div>
-      </div>    
+      </div>  
+    <% else %>
+      <div class = "card-footer" id = "show_rating">
+        <%= render partial: "show_rating", locals: {id: order.id}%>
+      </div>  
     <% end %> 
   </div>
   <br><br>
