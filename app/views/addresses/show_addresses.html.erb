@@ -19,8 +19,10 @@
       </tbody>
     </table>
     <div class = "card-footer">
-      <%= button_to "Place Order", place_order_path(address.id) , method: :post, class: "form_button" %>
-      <%= button_to "Pay Online", new_charge_path, method: :get, class: "form_button" %>
+      <% status = "promoted" %>
+      <%= button_to "Place Order", place_order_path(address.id,status) , method: :post, class: "form_button" %>
+      <% status = "executed" %>
+      <%= button_to "Pay Online", new_charge_path(address.id,status), method: :get, class: "form_button" %>
       <br>
     </div>
   </div>

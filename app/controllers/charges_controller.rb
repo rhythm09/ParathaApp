@@ -1,9 +1,14 @@
 class ChargesController < ApplicationController
 def new
+  @status = params[:status]
+  @address_id = params[:id]
 end
 
 def create
 # Amount in cents
+
+@id = params[:id]
+@status = params[:status]
 @amount = 1000
 
 customer = Stripe::Customer.create(

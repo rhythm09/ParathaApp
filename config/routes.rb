@@ -14,13 +14,15 @@ Rails.application.routes.draw do
   delete 'image/:paratha_id/:image_id', to: 'parathas#delete_image', as: 'image'
   get 'cart/:id', to: 'carts#add', as: 'add_to_cart'
   get 'show_addresses', to: 'addresses#show_addresses', as: 'show_addresses'
-  post 'order/:id', to: 'orders#create', as: 'place_order'
+  post 'order/:id/:status', to: 'orders#create', as: 'place_order'
   get 'delivery_address', to: 'addresses#add_delivery_address', as: 'add_delivery_address'
   post 'order', to: 'orders#place_order_address', as: 'order_address'
   get 'pending_orders', to: 'orders#pending_orders', as: 'pending_orders'
   put 'execute_order/:id', to: 'orders#execute_order', as: 'execute_order'
   get 'generate_pdf', to: 'orders#generate_pdf', as: 'generate_pdf'
-  resources :charges
+  get 'new_charge/:id/:status', to: 'charges#new', as: 'new_charge'
+
+  resources :charges, only: %(create)
   get 'give_rating/:id', to: 'orders#give_rating', as: 'give_rating'
   get 'set_rating/:id', to: 'orders#set_rating', as: 'set_rating'
 end

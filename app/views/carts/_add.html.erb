@@ -1,2 +1,56 @@
 <% count = current_user.cart.cart_parathas.size %>
-<h1 class = "text-success">Current Items In Cart: <%= count %></h1>
+
+<div id="wrapper">
+
+ <div id="notification_div">
+  <span>Current Items In Cart: <%= count %></span>
+
+ </div>
+
+ <p id="show_notification" onclick='notification();'>Addes to Cart</p>
+
+</div>
+<style>
+  #wrapper
+{
+ text-align:center;
+ margin:0 auto;
+ padding:0px;
+ width:100%;
+}
+#notification_div
+{
+ height:100px;
+ margin:0px;
+ background-color:#2E9AFE;
+ display:none;
+ padding:40px;
+}
+#notification_div span
+{
+ padding:15px;
+ background-color:#084B8A;
+ color:#A9D0F5;
+ border-radius:5px;
+}
+#show_notification
+{
+ padding:12px;
+ margin:0px;
+ background-color:#0174DF;
+ vertical-align:bottom;
+ color:#E0ECF8;
+ font-weight:bold;
+ font-size:17px;
+ border-top:10px solid #045FB4;
+ border-bottom:10px solid #045FB4;
+ cursor:pointer;
+}
+</style>
+<script>
+ function notification()
+ {
+  $("#notification_div").slideToggle(300);
+ }
+</script>
+
