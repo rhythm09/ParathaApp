@@ -1,4 +1,10 @@
 <%= form_tag charges_path, id:'chargeForm' do %>
+<% @cart = current_user.cart %>
+<% @parathas = @cart.cart_parathas %>
+<% total =0 %>
+<% @parathas.each do |paratha| %>
+  <% total = total + paratha.quantity * paratha.paratha.price %>
+<% end %>
     <article>
       <% if flash[:error].present? %>
         <div id="error_explanation">
@@ -9,7 +15,7 @@
 
     <script src="https://checkout.stripe.com/checkout.js"></script>
                   <%= hidden_field_tag 'stripeToken' %>
-                  <%= hidden_field_tag 'amount', 1 %>
+                  <%= hidden_field_tag 'amount', total %>
                   <%= hidden_field_tag 'stripeEmail' %>
                   <%= hidden_field_tag 'id', @address_id %>
                   <%= hidden_field_tag 'status', @status %>

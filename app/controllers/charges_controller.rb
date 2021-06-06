@@ -9,7 +9,7 @@ def create
 
 @id = params[:id]
 @status = params[:status]
-@amount = 1000
+@amount = params[:amount].to_i * 100
 
 customer = Stripe::Customer.create(
 :email => params[:stripeEmail],
